@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
 
@@ -49,6 +50,12 @@ class Home extends React.Component {
         >
           Pesquisar
         </button>
+        <Link
+          to="/Cart"
+          data-testid="shopping-cart-button"
+        >
+          Carrinho de Compras
+        </Link>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
