@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
+import Details from './Details';
 
 class Home extends React.Component {
   constructor() {
@@ -71,6 +72,12 @@ class Home extends React.Component {
                 <p>{ product.title}</p>
                 <p>{product.price}</p>
                 <img src={ product.thumbnail } alt={ product.title } />
+                <Link
+                  data-testid="product-detail-link"
+                  to={ `/Details/${product.id}` }
+                >
+                  Detalhes
+                </Link>
               </div>
             ))
           )}
