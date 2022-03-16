@@ -5,7 +5,7 @@ class Cart extends React.Component {
     super();
 
     this.state = {
-      counter: 1,
+      counter: 0,
       products: [],
     };
   }
@@ -15,8 +15,13 @@ class Cart extends React.Component {
   }
 
    gettingProductFromLocal = () => {
+     let cartProducts = JSON.parse(localStorage.getItem('productCart'));
+     if (cartProducts === null) {
+       cartProducts = 0;
+     }
      this.setState({
-       products: JSON.parse(localStorage.getItem('productCart')),
+       products: cartProducts,
+       counter: cartProducts.length,
      });
    }
 
@@ -24,9 +29,8 @@ class Cart extends React.Component {
      const { counter, products } = this.state;
      return (
 
-       counter === 0
-         ? <h2 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h2>
-         : (
+       counter > 0
+         ? (
            <div>
              <ul>
                {
@@ -47,7 +51,9 @@ class Cart extends React.Component {
              </ul>
              <p data-testid="shopping-cart-product-quantity">{ `Itens: ${counter}` }</p>
            </div>
-         ));
+         )
+         : <h2 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h2>
+     );
    }
 }
 
