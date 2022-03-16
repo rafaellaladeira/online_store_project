@@ -11,6 +11,7 @@ class Details extends React.Component {
       productName: '',
       price: 0,
       image: '',
+      productCart: [],
     };
   }
 
@@ -28,18 +29,45 @@ class Details extends React.Component {
     });
   }
 
+  addCart = (e) => {
+    e.preventDefault();
+    let localSt = JSON.parse(localStorage.getItem('productCart'));
+    console.log(localSt);
+    if (localSt === null) {
+      localSt = [];
+    }
+    const { price, image, productName } = this.state;
+    const dataObj = { productName, price, image };
+    this.setState(() => ({
+      productCart: [...localSt, dataObj],
+    }), () => {
+      const { productCart } = this.state;
+      localStorage.setItem('productCart', JSON.stringify(productCart));
+    });
+  }
+
   render() {
     const { productName, price, image } = this.state;
     return (
       <div>
-        <p data-testid="product-detail-name">{ productName }</p>
-        <p>{ `R$ ${price}` }</p>
-        <img src={ image } alt={ productName } />
         <Link
           to="/Cart"
+          data-testid="shopping-cart-button"
         >
           Ir para o carrinho
         </Link>
+        <div>
+          <p data-testid="product-detail-name">{ productName }</p>
+          <p>{ `R$ ${price}` }</p>
+          <img src={ image } alt={ productName } />
+          <button
+            data-testid="product-detail-add-to-cart"
+            type="button"
+            onClick={ this.addCart }
+          >
+            Adicionar ao carrinho
+          </button>
+        </div>
       </div>
     );
   }

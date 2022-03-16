@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getProductsFromCategoryAndQuery } from '../services/api';
 import Categories from '../components/Categories';
+import { getProductsFromCategoryAndQuery } from '../services/api';
 
 class Home extends React.Component {
   constructor() {
@@ -54,7 +54,7 @@ class Home extends React.Component {
           to="/Cart"
           data-testid="shopping-cart-button"
         >
-          Carrinho de Compras
+          Ir para o carrinho
         </Link>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
