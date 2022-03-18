@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Categories from '../components/Categories';
 import { BsCart2 } from 'react-icons/bs';
+import Categories from '../components/Categories';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
 class Home extends React.Component {
