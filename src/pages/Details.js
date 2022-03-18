@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { fetchProduct } from '../services/api';
+import Evaluation from '../components/Evaluation';
 
 class Details extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      productName: '',
       price: 0,
-      image: '',
       productCart: [],
+      EvaluationId: '',
     };
   }
 
@@ -21,11 +21,16 @@ class Details extends React.Component {
 
   gettingProduct = async () => {
     const { match: { params: { id } } } = this.props;
+    const { EvaluationId } = this.state;
+    this.setState({
+      EvaluationId: id,
+    });
+    console.log(EvaluationId);
     const product = await fetchProduct(id);
     this.setState({
-      productName: product.title,
+      title: product.title,
       price: product.price,
-      image: product.thumbnail,
+      thumbnail: product.thumbnail,
     });
   }
 
@@ -36,8 +41,8 @@ class Details extends React.Component {
     if (localSt === null) {
       localSt = [];
     }
-    const { price, image, productName } = this.state;
-    const dataObj = { productName, price, image };
+    const { price, thumbnail, title } = this.state;
+    const dataObj = { price, thumbnail, title };
     this.setState(() => ({
       productCart: [...localSt, dataObj],
     }), () => {
@@ -47,7 +52,8 @@ class Details extends React.Component {
   }
 
   render() {
-    const { productName, price, image } = this.state;
+    const { price, thumbnail, title, EvaluationId } = this.state;
+    console.log(EvaluationId);
     return (
       <div>
         <Link
@@ -57,9 +63,9 @@ class Details extends React.Component {
           Ir para o carrinho
         </Link>
         <div>
-          <p data-testid="product-detail-name">{ productName }</p>
+          <p data-testid="product-detail-name">{ title }</p>
           <p>{ `R$ ${price}` }</p>
-          <img src={ image } alt={ productName } />
+          <img src={ thumbnail } alt={ title } />
           <button
             data-testid="product-detail-add-to-cart"
             type="button"
@@ -67,6 +73,9 @@ class Details extends React.Component {
           >
             Adicionar ao carrinho
           </button>
+          <Evaluation
+            EvaluationIdProps={ EvaluationId }
+          />
         </div>
       </div>
     );

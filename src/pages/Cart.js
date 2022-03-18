@@ -36,15 +36,15 @@ class Cart extends React.Component {
                {
                  products.map((product) => (
                    <li
-                     key={ product.productName }
+                     key={ product.title }
                    >
                      <p
                        data-testid="shopping-cart-product-name"
                      >
-                       { product.productName }
+                       { product.title }
                      </p>
                      <p>{ `R$ ${product.price}` }</p>
-                     <img src={ product.image } alt={ product.productName } />
+                     <img src={ product.thumbnail } alt={ product.title } />
                    </li>
                  ))
                }
