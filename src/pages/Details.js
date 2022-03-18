@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { BsCart2 } from 'react-icons/bs';
 import { fetchProduct } from '../services/api';
 
 class Details extends React.Component {
@@ -54,7 +55,7 @@ class Details extends React.Component {
           to="/Cart"
           data-testid="shopping-cart-button"
         >
-          Ir para o carrinho
+          <BsCart2 />
         </Link>
         <div>
           <p data-testid="product-detail-name">{ productName }</p>

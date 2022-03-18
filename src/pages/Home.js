@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Categories from '../components/Categories';
+import { BsCart2 } from 'react-icons/bs';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
 class Home extends React.Component {
@@ -54,7 +55,7 @@ class Home extends React.Component {
           to="/Cart"
           data-testid="shopping-cart-button"
         >
-          Ir para o carrinho
+          <BsCart2 />
         </Link>
         <p data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
