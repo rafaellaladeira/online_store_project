@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { BsCart2 } from 'react-icons/bs';
 import { fetchProduct } from '../services/api';
 import Evaluation from '../components/Evaluation';
 
@@ -60,12 +61,12 @@ class Details extends React.Component {
           to="/Cart"
           data-testid="shopping-cart-button"
         >
-          Ir para o carrinho
+          <BsCart2 />
         </Link>
         <div>
           <p data-testid="product-detail-name">{ title }</p>
           <p>{ `R$ ${price}` }</p>
-          <img src={ thumbnail } alt={ title } />
+          <img className="size" src={ thumbnail } alt={ title } />
           <button
             data-testid="product-detail-add-to-cart"
             type="button"

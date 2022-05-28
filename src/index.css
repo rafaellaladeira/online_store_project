@@ -5,9 +5,66 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 225, 186);
+  margin-top: 2em;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.categories {
+  margin-left: 40%;
+  margin-right: 25%;
+  display: flex;
+ 
+}
+
+.digite {
+  color: rgb(29, 64, 125);
+  text-shadow: 6px 2px 6px rgb(0, 65, 163);
+
+}
+
+.inputSch {
+  text-align: center;
+}
+
+.products {
+  width: 200px;
+  height: 150px;
+  border: 2px solid black;
+  border-color: brown;
+}
+
+.evaluation2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 30%;
+  height: 110px;
+  border: 2px solid rgb(25, 94, 33);
+  border-radius: 2%;
+  border-style: double;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 5px 5px 15px 1px rgb(6, 131, 60);
+}
+
+.size {
+  width: 100px;
+  height: 100px;
+}
+
+.center {
+  text-align: center;
+  margin-top: 10em;
+  text-shadow: 5px 5px 10px rgb(4, 150, 126);
+}
+
+.center2 {
+  text-align: center;
 }

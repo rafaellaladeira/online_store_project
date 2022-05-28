@@ -54,7 +54,7 @@ class Categories extends React.Component {
       return (
         <div>
           { categorie.map((obj) => (
-            <label key={ obj.id } data-testid="category" htmlFor={ obj.name }>
+            <label className="categories" key={ obj.id } data-testid="category" htmlFor={ obj.name }>
               <input
                 type="radio"
                 id={ obj.name }

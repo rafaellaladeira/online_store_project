@@ -49,12 +49,14 @@ class Evaluation extends React.Component {
       const { email, comment, gettingEvaluation } = this.state;
 
       return (
-        <div className="evaluation">
+        <div>
           <h2>Comentários sobre o produto: </h2>
           { !gettingEvaluation
             ? null
             : (gettingEvaluation.map((evaluatioon) => (
-              <div key={ evaluatioon.email }>
+              <div
+                key={ evaluatioon.email }
+              >
                 <p>{ evaluatioon.email }</p>
                 <p>{ evaluatioon.comment }</p>
               </div>

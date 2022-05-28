@@ -31,7 +31,7 @@ class Cart extends React.Component {
 
        counter > 0
          ? (
-           <div>
+           <div className="center2">
              <ul>
                {
                  products.map((product) => (
@@ -44,15 +44,15 @@ class Cart extends React.Component {
                        { product.title }
                      </p>
                      <p>{ `R$ ${product.price}` }</p>
-                     <img src={ product.thumbnail } alt={ product.title } />
+                     <img className="size" src={ product.thumbnail } alt={ product.title } />
                    </li>
                  ))
                }
              </ul>
-             <p data-testid="shopping-cart-product-quantity">{ `Itens: ${counter}` }</p>
+             <p className="center" data-testid="shopping-cart-product-quantity">{ `Itens: ${counter}` }</p>
            </div>
          )
-         : <h2 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h2>
+         : <h2 className="center" data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h2>
      );
    }
 }

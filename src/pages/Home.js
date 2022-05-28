@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BsCart2 } from 'react-icons/bs';
 import Categories from '../components/Categories';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 
@@ -34,7 +35,7 @@ class Home extends React.Component {
   render() {
     const { name, products } = this.state;
     return (
-      <div>
+      <div className="inputSch">
         <input
           type="text"
           name="name"
@@ -54,9 +55,9 @@ class Home extends React.Component {
           to="/Cart"
           data-testid="shopping-cart-button"
         >
-          Ir para o carrinho
+          <BsCart2 className="teste" />
         </Link>
-        <p data-testid="home-initial-message">
+        <p className="digite" data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </p>
         { products.length === 0
